@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        String allProducts = "\nСписок добавленных товаров:\n";
         String input;
 
         System.out.println("Это программа \"Калькулятор счета\"\n\nНа скольких человек нужно разделить счет?");
@@ -15,10 +16,9 @@ public class Main {
         }
 
         Calculator totalAmount = new Calculator();
+        Product userProduct = new Product(00.00, "Товар");
 
-        while (true) {
-            Product userProduct = new Product(00.00, "Товар");
-
+        do {
             userProduct.productNameInput();
             userProduct.productCostInput();
             userProduct.printInput();
@@ -26,15 +26,12 @@ public class Main {
             totalAmount.totalAmount = totalAmount.totalAmount + userProduct.productCost;
             totalAmount.getTotalAmount();
 
-            totalAmount.allProducts = "\n" + userProduct.productName;
-            totalAmount.printAllProducts();
+            allProducts += userProduct.productName + "\n";
+            System.out.println(allProducts);
 
             userProduct.askToAddNewProduct();
             input = scanner.next();
-            if (input.equalsIgnoreCase("Завершить")) {
-                break;
-            }
-        }
+        } while (!input.equalsIgnoreCase("Завершить"));
 
     }
 }
