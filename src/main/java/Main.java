@@ -6,7 +6,7 @@ public class Main {
         String allProducts = "\nСписок добавленных товаров:\n";
         String input;
 
-        System.out.println("Это программа \"Калькулятор счета\"\n\nНа скольких человек нужно разделить счет?");
+        System.out.println("Это программа \"Калькулятор счета\"\n\nНа сколько человек нужно разделить счет?");
         int guestAmmount = scanner.nextInt();
 
         //не удалось сделать нормальную обработку ввода с помощью hasNextInt(), для случаев когда в значении будет != int. Если додумаюсь, то дополню позже
@@ -33,5 +33,7 @@ public class Main {
             input = scanner.next();
         } while (!input.equalsIgnoreCase("Завершить"));
 
+        TextFormatter test = new TextFormatter(7319);
+        test.formateText();
     }
 }
